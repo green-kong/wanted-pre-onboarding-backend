@@ -8,3 +8,12 @@ exports.createRecruitment = async (req, res) => {
     res.sendStatus(500);
   }
 };
+
+exports.updateRecruitment = async (req, res) => {
+  const serviceResult = await service.updatePosting(req.body);
+  if (serviceResult.result) {
+    res.json(serviceResult);
+  } else {
+    res.sendStatus(500);
+  }
+};
