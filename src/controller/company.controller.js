@@ -4,6 +4,7 @@ exports.recruitmentList = async (req, res) => {
   const {search} = req.query;
   let serviceResult;
   if (search) {
+    serviceResult = await service.getRecruitmentSearchList(search);
   } else {
     serviceResult = await service.getRecruitmentList();
   }
