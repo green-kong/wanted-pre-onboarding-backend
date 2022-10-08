@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "dummyData": "npx sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
-    "sequelize": "^6.24.0"
+    "sequelize": "^6.24.0",
+    "sequelize-cli": "^6.5.1"
   }
 }
