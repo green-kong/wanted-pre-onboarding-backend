@@ -17,3 +17,12 @@ exports.updateRecruitment = async (req, res) => {
     res.sendStatus(500);
   }
 };
+
+exports.deleteRecruitment = async (req, res) => {
+  const serviceResult = await service.deleteRecruitment(req.body);
+  if (serviceResult.result) {
+    res.json(serviceResult);
+  } else {
+    res.sendStatus(500);
+  }
+};

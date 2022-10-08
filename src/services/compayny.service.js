@@ -67,3 +67,14 @@ exports.updatePosting = async (payload) => {
     return {result: false, message: error.message};
   }
 };
+
+exports.deleteRecruitment = async (payload) => {
+  const {id} = payload;
+  try {
+    await db.recruitment.destroy({where: {id}});
+    return {result: true, message: 'delete success'};
+  } catch (error) {
+    console.error(error);
+    return {result: false, message: error.message};
+  }
+};

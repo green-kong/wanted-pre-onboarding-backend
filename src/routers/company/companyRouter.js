@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get('/recruitment', controller.createRecruitment);
 
-router.patch('/updatePosting', controller.updateRecruitment);
+router.patch('/recruitment', controller.updateRecruitment);
+
+router.delete('/recruitment', controller.deleteRecruitment);
 
 module.exports = router;
