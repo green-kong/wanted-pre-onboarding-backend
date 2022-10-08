@@ -1,6 +1,26 @@
 const db = require('../db/models');
 
-exports.recruitment = async (payload) => {
+exports.getRecruitmentList = async () => {
+  try {
+    const data = await db.recruitment.findAll({
+      attributes: {exclude: ['c_id', 'desc']},
+      include: [
+        {model: db.company, attributes: ['name', 'reigion']},
+        {
+          model: db.requireTech,
+          attributes: ['id'],
+          include: [{model: db.techList, attributes: ['tech']}],
+        },
+      ],
+    });
+    return {result: true, data};
+  } catch (error) {
+    console.error(error);
+    return {result: false, message: error.message};
+  }
+};
+
+exports.createRecruitment = async (payload) => {
   const {c_id, desc, position, bonus, requireTech} = payload;
   const transaction = await db.sequelize.transaction();
   try {
